@@ -53,6 +53,11 @@ public class CardOrderController {
      * @return お勤め先登録ページresponse
      */
     public HttpResponse inputJob(CardOrderForm form) {
+        //エラーを持ったまま遷移した場合に/userに戻す
+        if (form.hasErrors()) {
+            return templateEngine.render("cardOrder/user", "form", form);
+        }
+
         // エラーを出したくないので強制的にエラーを消す.
         form.setErrors(null);
 
