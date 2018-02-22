@@ -31,21 +31,21 @@
                                 <ul class="ui red basic label" th:if="${form.hasErrors('kanjiName')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'kanjiName' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" name="kanjiName" th:value="${form.kanjiName}"/>
+                                <input type="text" name="kanjiName" placeholder="＜例＞山本一郎" th:value="${form.kanjiName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
                                 <label>お名前（カナ）</label>
                                 <ul class="ui red basic label" th:if="${form.hasErrors('kanaName')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'kanaName' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" name="kanaName" th:value="${form.kanaName}"/>
+                                <input type="text" name="kanaName" placeholder="＜例＞ヤマモトイチロウ" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
                                 <label>お名前（ローマ字）</label>
                                 <ul class="ui red basic label" th:if="${form.hasErrors('alphabetName')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'alphabetName' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" name="alphabetName" th:value="${form.alphabetName}"/>
+                                <input type="text" name="alphabetName" placeholder="＜例＞YAMAMOTO ICHIRO" th:value="${form.alphabetName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
                                 <label>性別</label>
@@ -74,7 +74,7 @@
                                 <ul class="ui red basic label" th:if="${form.hasErrors('address')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'address' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" name="address" th:value="${form.address}"/>
+                                <input type="text" name="address" placeholder="＜例＞５－４東西マンションA棟１０１" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber')} ? 'error'">
                                 <label>自宅電話番号</label>
@@ -95,7 +95,7 @@
                                 <ul class="ui red basic label" th:if="${form.hasErrors('emailAddress')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'emailAddress' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" name="emailAddress" th:value="${form.emailAddress}"/>
+                                <input type="text" name="emailAddress" placeholder="＜例＞yamamoto.ichiro@tiscon.co.jp" th:value="${form.emailAddress}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
                                 <label>配偶者有無</label>
@@ -125,14 +125,14 @@
                                 <ul class="ui red basic label" th:if="${form.hasErrors('debt')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'debt' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" class="number" name="debt" th:value="${form.debt}"/><span class="unit">万円</span>
+                                <input type="text" class="number" name="debt" placeholder="＜例＞300" th:value="${form.debt}"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
                                 <label>昨年の所得</label>
                                 <ul class="ui red basic label" th:if="${form.hasErrors('income')}">
                                     <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'income' ? ${error.value}"></li>
                                 </ul>
-                                <input type="text" class="number" name="income" th:value="${form.income}"/><span class="unit">万円</span>
+                                <input type="text" class="number" name="income" placeholder="＜例＞300" th:value="${form.income}"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
                                 <label>ご職業</label>

@@ -26,11 +26,12 @@
 
                             <div class="ui horizontal divider">お勤め先について</div>
 
-                            <div class="ui statement">ご職業が「経営・自営業」、「会社員」、「契約・派遣社員」、「公務員」、「民間団体」、「その他（有職）」の方は、以下の項目をご入力ください。</div>
+                            <div class="ui statement"><div style="background-color:#3b7500;color:#ffffff">ご職業が「経営・自営業」、「会社員」、「契約・派遣社員」、「公務員」、「民間団体」、「その他（有職）」の方は、以下の項目をご入力ください</div>
+                            </div>
 
                             <div class="field" th:classappend="${form.hasErrors('employerName')} ? 'error'">
                                 <label>お勤め先名</label>
-                                <input type="text" name="employerName" th:value="${form.employerName}"/>
+                                <input type="text" name="employerName" placeholder="＜例＞東西商事株式会社" th:value="${form.employerName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerZipCode')} ? 'error'">
                                 <label>お勤め先郵便番号</label>
@@ -38,7 +39,7 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerAddress')} ? 'error'">
                                 <label>お勤め先住所</label>
-                                <input type="text" name="employerAddress" th:value="${form.employerAddress}"/>
+                                <input type="text" name="employerAddress" placeholder="＜例＞東京都新宿区西新宿8-17-1" th:value="${form.employerAddress}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerPhoneNumber')} ? 'error'">
                                 <label>お勤め先電話番号</label>
