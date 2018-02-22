@@ -113,25 +113,42 @@ public class CardOrderForm extends FormBase {
     @Pattern(regexp = "[0-9]*")
     private String employeeLength;
 
-    private Map<String, String> formName = new HashMap();
+    private Map<String, String> userFormName = new LinkedHashMap();
+    private Map<String, String> jobFormName = new LinkedHashMap();
 
     public CardOrderForm() {
         super();
-        formName.put("kanjiName", "お名前（漢字）");
-        formName.put("kanaName", "お名前（カナ）");
-        formName.put("alphabetName", "お名前（ローマ字）");
-        formName.put("gender", "性別");
-        formName.put("dateOfBirth", "生年月日");
-        formName.put("zipCode", "郵便番号");
-        formName.put("address", "ご住所");
-        formName.put("homePhoneNumber", "自宅電話番号");
-        formName.put("mobilePhoneNumber", "携帯電話番号");
-        formName.put("emailAddress", "メールアドレス");
-        formName.put("spouse", "配偶者有無");
-        formName.put("houseClassification", "お住まい");
-        formName.put("debt", "ローン等のお借り入れ金額");
-        formName.put("income", "昨年の所得");
-        formName.put("job", "ご職業");
+        userFormName.put("kanjiName", "お名前（漢字）");
+        userFormName.put("kanaName", "お名前（カナ）");
+        userFormName.put("alphabetName", "お名前（ローマ字）");
+        userFormName.put("gender", "性別");
+        userFormName.put("dateOfBirth", "生年月日");
+        userFormName.put("zipCode", "郵便番号");
+        userFormName.put("address", "ご住所");
+        userFormName.put("homePhoneNumber", "自宅電話番号");
+        userFormName.put("mobilePhoneNumber", "携帯電話番号");
+        userFormName.put("emailAddress", "メールアドレス");
+        userFormName.put("spouse", "配偶者有無");
+        userFormName.put("houseClassification", "お住まい");
+        userFormName.put("debt", "ローン等のお借り入れ金額");
+        userFormName.put("income", "昨年の所得");
+        userFormName.put("job", "ご職業");
+
+        jobFormName.put("employerName", "お勤め先名");
+        jobFormName.put("employerZipCode", "お勤め先郵便番号");
+        jobFormName.put("employerAddress", "お勤め先住所");
+        jobFormName.put("employerPhoneNumber", "お勤め先電話番号");
+        jobFormName.put("industryType", "業種");
+        jobFormName.put("capital", "資本金");
+        jobFormName.put("companySize", "お勤め先の規模（従業員数）");
+        jobFormName.put("department", "所属部署");
+        jobFormName.put("position", "役職");
+        jobFormName.put("employeeLength", "勤続年数");
+
+        /*
+        * 複数個にまたがるフォームのエラー条件と名称は未登録！！！！！
+        * 後でちゃんと確認して付け足すこと！！！！！！！！！！
+        * */
     }
 
 }

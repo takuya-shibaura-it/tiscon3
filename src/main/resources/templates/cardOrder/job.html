@@ -20,30 +20,33 @@
                         <form class="ui form" method="post" action="/cardOrder/">
 
                             <!-- /*エラーがあれば表示する*/ -->
-                            <ul class="ui red basic label" th:if="${form.hasErrors()}">
-                                <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.value}"></li>
+                            <ul class="ui red basic label error-list" th:if="${form.hasErrors()}">
+                                <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="'【' + ${form.jobFormName[error.key]} + '】 ' + ${error.value}"></li>
                             </ul>
 
                             <div class="ui horizontal divider">お勤め先について</div>
 
-                            <div class="ui statement"><font color="white"><ご職業が「経営・自営業」、「会社員」、「契約・派遣社員」、「公務員」、「民間団体」、「その他（有職）」の方は、以下の項目をご入力ください</font></div>
+                            <div class="ui teal message">ご職業が「経営・自営業」、「会社員」、「契約・派遣社員」、「公務員」、「民間団体」、「その他（有職）」の方は、以下の項目をご入力ください</div>
 
                             <div class="field" th:classappend="${form.hasErrors('employerName')} ? 'error'">
                                 <label>お勤め先名</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('employerName')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerName' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerName')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerName' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" name="employerName" placeholder="＜例＞東西商事株式会社" th:value="${form.employerName}"/>
                             </div>
                             <!--<div class="field" th:classappend="${form.hasErrors('employerZipCode')} ? 'error'">
                                 <label>お勤め先郵便番号</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('employerZipCode')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerZipCode' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerZipCode')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerZipCode' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" name="employerZipCode" th:value="${form.employerZipCode}"/>
                             </div>-->
                             <div class="field">
                                 <label>お勤め先郵便番号</label>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerZipCode')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerZipCode' ? ${error.value}"></li>
+                                </ul>
                                 <div class="two fields">
                                     <div class="field">
                                         <input type="text" name="employerZipCode0" placeholder="employerZipCode0">
@@ -56,20 +59,23 @@
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employerAddress')} ? 'error'">
                                 <label>お勤め先住所</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('employerAddress')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerAddress' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerAddress')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerAddress' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" name="employerAddress" placeholder="＜例＞東京都新宿区西新宿8-17-1" th:value="${form.employerAddress}"/>
                             </div>
                             <!--<div class="field" th:classappend="${form.hasErrors('employerPhoneNumber')} ? 'error'">
                                 <label>お勤め先電話番号</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('employerPhoneNumber')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerPhoneNumber' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerPhoneNumber')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerPhoneNumber' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" name="employerPhoneNumber" th:value="${form.employerPhoneNumber}"/>
                             </div>-->
                             <div class="field">
-                                <label>お勤め先郵便番号</label>
+                                <label>お勤め先電話番号</label>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerPhoneNumber')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employerPhoneNumber' ? ${error.value}"></li>
+                                </ul>
                                 <div class="three fields">
                                     <div class="field">
                                         <input type="text" name="employerPhoneNumber0" placeholder="employerPhoneNumber0">
@@ -86,8 +92,8 @@
                             </div>
                             <!--<div class="field" th:classappend="${form.hasErrors('industryType')} ? 'error'">
                                 <label>業種</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('industryType')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'industryType' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('industryType')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'industryType' ? ${error.value}"></li>
                                 </ul>
                                 <input type="radio" name="industryType" value="農林水鉱" th:checked="${form.industryType}=='農林水鉱'"/>農業・林業・水産業・鉱業
                                 <input type="radio" name="industryType" value="建築不動産" th:checked="${form.industryType}=='建築不動産'"/>建設・不動産業
@@ -103,6 +109,9 @@
 
                             <div class="field">
                                 <label>業種</label>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('industryType')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'industryType' ? ${error.value}"></li>
+                                </ul>
                                 <select>
                                     <option value="農林水鉱">農業・林業・水産業・鉱業</option>
                                     <option value="建築不動産">建設・不動産業</option>
@@ -119,8 +128,8 @@
 
                             <!--<div class="field" th:classappend="${form.hasErrors('capital')} ? 'error'">
                                 <label>資本金</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('capital')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'capital' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('capital')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'capital' ? ${error.value}"></li>
                                 </ul>
                                 <input type="radio" name="capital" th:field="*{form.capital}" value="999" th:checked="${form.capital}=='999'"/>１千万円未満
                                 <input type="radio" name="capital" th:field="${form.capital}" value="4999" th:checked="${form.capital}=='4999'"/>１千万円以上５千万円未満
@@ -131,6 +140,9 @@
 
                             <div class="field">
                                 <label>資本金</label>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('capital')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'capital' ? ${error.value}"></li>
+                                </ul>
                                 <select>
                                     <option name="capital" th:field="*{form.capital}" value="999" th:checked="${form.capital}=='999'">１千万円未満</option>
                                     <option name="capital" th:field="${form.capital}" value="4999" th:checked="${form.capital}=='4999'">１千万円以上５千万円未満</option>
@@ -142,8 +154,8 @@
 
                             <!--<div class="field" th:classappend="${form.hasErrors('companySize')} ? 'error'">
                                 <label>お勤め先の規模（従業員数）</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('companySize')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'companySize' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('companySize')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'companySize' ? ${error.value}"></li>
                                 </ul>
                                 <input type="radio" name="companySize" th:field="${form.companySize}" value="9" th:checked="${form.companySize}=='9'"/>１０名未満
                                 <input type="radio" name="companySize" th:field="${form.companySize}" value="29" th:checked="${form.companySize}=='29'"/>１０名以上３０名未満
@@ -155,6 +167,9 @@
 
                             <div class="field">
                                 <label>お勤め先の規模（従業員数）</label>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('companySize')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'companySize' ? ${error.value}"></li>
+                                </ul>
                                 <select>
                                     <option name="companySize" th:field="${form.companySize}" value="9" th:checked="${form.companySize}=='9'">１０名未満</option>
                                     <option name="companySize" th:field="${form.companySize}" value="29" th:checked="${form.companySize}=='29'">１０名以上３０名未満</option>
@@ -167,22 +182,22 @@
 
                             <div class="field" th:classappend="${form.hasErrors('department')} ? 'error'">
                                 <label>所属部署</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('department')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'department' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('department')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'department' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" name="department" th:value="${form.department}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('position')} ? 'error'">
                                 <label>役職</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('position')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'position' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('position')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'position' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" name="position" th:value="${form.position}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employeeLength')} ? 'error'">
                                 <label>勤続年数</label>
-                                <ul class="ui red basic label" th:if="${form.hasErrors('employeeLength')}">
-                                    <li th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employeeLength' ? ${error.value}"></li>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('employeeLength')}">
+                                    <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'employeeLength' ? ${error.value}"></li>
                                 </ul>
                                 <input type="text" class="number" name="employeeLength" th:value="${form.employeeLength}"/><span class="unit">年</span >
                             </div>

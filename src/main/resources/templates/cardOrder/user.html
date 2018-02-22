@@ -21,7 +21,7 @@
 
                             <!-- /*エラーがあれば表示する*/ -->
                             <ul class="ui red basic label error-list" th:if="${form.hasErrors()}">
-                                <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="'【' + ${form.formName[error.key]} + '】 ' + ${error.value}"></li>
+                                <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="'【' + ${form.userFormName[error.key]} + '】 ' + ${error.value}"></li>
                             </ul>
 
                             <div class="ui horizontal divider">ご本人について</div>
