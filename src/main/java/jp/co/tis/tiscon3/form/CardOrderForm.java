@@ -3,6 +3,7 @@ package jp.co.tis.tiscon3.form;
 import lombok.Data;
 
 import javax.validation.constraints.*;
+import java.util.*;
 
 @Data
 public class CardOrderForm extends FormBase {
@@ -111,5 +112,26 @@ public class CardOrderForm extends FormBase {
     @Size(max = 6)
     @Pattern(regexp = "[0-9]*")
     private String employeeLength;
+
+    private Map<String, String> formName = new HashMap();
+
+    public CardOrderForm() {
+        super();
+        formName.put("kanjiName", "お名前（漢字）");
+        formName.put("kanaName", "お名前（カナ）");
+        formName.put("alphabetName", "お名前（ローマ字）");
+        formName.put("gender", "性別");
+        formName.put("dateOfBirth", "生年月日");
+        formName.put("zipCode", "郵便番号");
+        formName.put("address", "ご住所");
+        formName.put("homePhoneNumber", "自宅電話番号");
+        formName.put("mobilePhoneNumber", "携帯電話番号");
+        formName.put("emailAddress", "メールアドレス");
+        formName.put("spouse", "配偶者有無");
+        formName.put("houseClassification", "お住まい");
+        formName.put("debt", "ローン等のお借り入れ金額");
+        formName.put("income", "昨年の所得");
+        formName.put("job", "ご職業");
+    }
 
 }

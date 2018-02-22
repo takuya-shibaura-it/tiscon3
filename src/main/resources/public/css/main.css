@@ -116,3 +116,14 @@ ul.label {
 .photo-show:hover img {
     animation-play-state: paused;
 }
+
+.error-list {
+    text-align: left;
+    width: 100%;
+    display: block;
+}
+
+li.error-list {
+    margin: 0.5em 0;
+    display: block;
+}
