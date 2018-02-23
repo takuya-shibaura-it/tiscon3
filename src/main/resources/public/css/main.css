@@ -127,3 +127,8 @@ li.error-list {
     margin: 0.5em 0;
     display: block;
 }
+
+.require {
+    color: #DB2828;
+    margin-left: 1em;
+}

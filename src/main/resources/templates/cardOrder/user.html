@@ -27,28 +27,28 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前（漢字）</label>
+                                <label>お名前（漢字）<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('kanjiName')}">
                                     <li class="error-list" th:text="${form.getErrors().get('kanjiName')}"></li>
                                 </ul>
                                 <input type="text" name="kanjiName" placeholder="＜例＞山本一郎" th:value="${form.kanjiName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
-                                <label>お名前（カナ）</label>
+                                <label>お名前（カナ）<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('kanaName')}">
                                     <li class="error-list" th:text="${form.getErrors().get('kanaName')}"></li>
                                 </ul>
                                 <input type="text" name="kanaName" placeholder="＜例＞ヤマモトイチロウ" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
-                                <label>お名前（ローマ字）</label>
+                                <label>お名前（ローマ字）<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('alphabetName')}">
                                     <li class="error-list" th:text="${form.getErrors().get('alphabetName')}"></li>
                                 </ul>
                                 <input type="text" name="alphabetName" placeholder="＜例＞YAMAMOTO ICHIRO" th:value="${form.alphabetName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('gender')} ? 'error'">
-                                <label>性別</label>
+                                <label>性別<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('gender')}">
                                     <li class="error-list" th:text="${form.getErrors().get('gender')}"></li>
                                 </ul>
@@ -56,14 +56,14 @@
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
-                                <label>生年月日</label>
+                                <label>生年月日<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('dateOfBirth')}">
                                     <li class="error-list" th:text="${form.getErrors().get('dateOfBirth')}"></li>
                                 </ul>
                                 <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode0') or form.hasErrors('zipCode1')} ? 'error'">
-                                <label>郵便番号</label>
+                                <label>郵便番号<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('zipCode0') or form.hasErrors('zipCode1')}">
                                     <li class="error-list" th:if="${form.hasErrors('zipCode0')}" th:text="${form.getErrors().get('zipCode0')}"></li>
                                     <li class="error-list" th:if="${form.hasErrors('zipCode1')}" th:text="${form.getErrors().get('zipCode1')}"></li>
@@ -79,14 +79,14 @@
                                 </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
-                                <label>ご住所</label>
+                                <label>ご住所<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('address')}">
                                     <li class="error-list" th:text="${form.getErrors().get('address')}"></li>
                                 </ul>
                                 <input type="text" name="address" placeholder="＜例＞５－４東西マンションA棟１０１" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber0') or form.hasErrors('homePhoneNumber1') or form.hasErrors('homePhoneNumber2')} ? 'error'">
-                                <label>自宅電話番号</label>
+                                <label>自宅電話番号<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('homePhoneNumber0') or form.hasErrors('homePhoneNumber1') or form.hasErrors('homePhoneNumber2')}">
                                     <li class="error-list" th:if="${form.hasErrors('homePhoneNumber0')}" th:text="${form.getErrors().get('homePhoneNumber0')}"></li>
                                     <li class="error-list" th:if="${(not form.hasErrors('homePhoneNumber0')) and form.hasErrors('homePhoneNumber1')}" th:text="${form.getErrors().get('homePhoneNumber1')}"></li>
@@ -131,14 +131,14 @@
                                 </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
-                                <label>メールアドレス</label>
+                                <label>メールアドレス<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('emailAddress')}">
                                     <li class="error-list" th:text="${form.getErrors().get('emailAddress')}"></li>
                                 </ul>
                                 <input type="text" name="emailAddress" placeholder="＜例＞yamamoto.ichiro@tiscon.co.jp" th:value="${form.emailAddress}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('spouse')} ? 'error'">
-                                <label>配偶者有無</label>
+                                <label>配偶者有無<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('spouse')}">
                                     <li class="error-list" th:text="${form.getErrors().get('spouse')}"></li>
                                 </ul>
@@ -146,7 +146,7 @@
                                 <input type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>配偶者なし
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('houseClassification')} ? 'error'">
-                                <label>お住まい</label>
+                                <label>お住まい<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('houseClassification')}">
                                     <li class="error-list" th:text="${form.getErrors().get('houseClassification')}"></li>
                                 </ul>
@@ -163,21 +163,21 @@
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
-                                <label>ローン等のお借り入れ金額</label>
+                                <label>ローン等のお借り入れ金額<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('debt')}">
                                     <li class="error-list" th:text="${form.getErrors().get('debt')}"></li>
                                 </ul>
                                 <input type="text" class="number" name="debt" placeholder="＜例＞300" th:value="${form.debt}"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
-                                <label>昨年の所得</label>
+                                <label>昨年の所得<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('income')}">
                                     <li class="error-list" th:text="${form.getErrors().get('income')}"></li>
                                 </ul>
                                 <input type="text" class="number" name="income" placeholder="＜例＞300" th:value="${form.income}"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('job')} ? 'error'">
-                                <label>ご職業</label>
+                                <label>ご職業<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('job')}">
                                     <li class="error-list" th:text="${form.getErrors().get('job')}"></li>
                                 </ul>
