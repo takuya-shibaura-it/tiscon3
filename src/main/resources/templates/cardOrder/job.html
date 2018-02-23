@@ -43,7 +43,7 @@
                                 <input type="text" name="employerZipCode" th:value="${form.employerZipCode}"/>
                             </div>-->
                             <div class="field">
-                                <label>お勤め先郵便番号</label>
+                                <label>お勤め先郵便番号<span class="char-type">（半角数字）</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerZipCode0') or form.hasErrors('employerZipCode1')}">
                                     <li class="error-list" th:if="${form.hasErrors('employerZipCode0')}" th:text="${form.getErrors().get('employerZipCode0')}"></li>
                                     <li class="error-list" th:if="${(not form.hasErrors('employerZipCode0')) and form.hasErrors('employerZipCode1')}" th:text="${form.getErrors().get('employerZipCode1')}"></li>
@@ -73,7 +73,7 @@
                                 <input type="text" name="employerPhoneNumber" th:value="${form.employerPhoneNumber}"/>
                             </div>-->
                             <div class="field">
-                                <label>お勤め先電話番号</label>
+                                <label>お勤め先電話番号<span class="char-type">（半角数字）</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('employerPhoneNumber0') or form.hasErrors('employerPhoneNumber1') or form.hasErrors('employerPhoneNumber2')}">
                                     <li class="error-list" th:if="${form.hasErrors('employerPhoneNumber0')}" th:text="${form.getErrors().get('employerPhoneNumber0')}"></li>
                                     <li class="error-list" th:if="${(not form.hasErrors('employerPhoneNumber0')) and form.hasErrors('employerPhoneNumber1')}" th:text="${form.getErrors().get('employerPhoneNumber1')}"></li>
@@ -198,7 +198,7 @@
                                 <input type="text" name="position" th:value="${form.position}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('employeeLength')} ? 'error'">
-                                <label>勤続年数</label>
+                                <label>勤続年数<span class="char-type">（半角数字）</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('employeeLength')}">
                                     <li class="error-list" th:text="${form.getErrors().get('employeeLength')}"></li>
                                 </ul>
