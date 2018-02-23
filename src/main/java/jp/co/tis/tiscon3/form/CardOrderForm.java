@@ -164,7 +164,7 @@ public class CardOrderForm extends FormBase {
     public CardOrderForm() {
         super();
         userFormName.put("kanjiName", "お名前（漢字）");
-        userFormName.put("kanaName", "お名前（カナ）");
+        userFormName.put("kanaName", "フリガナ");
         userFormName.put("alphabetName", "お名前（ローマ字）");
         userFormName.put("gender", "性別");
         userFormName.put("dateOfBirth", "生年月日");
