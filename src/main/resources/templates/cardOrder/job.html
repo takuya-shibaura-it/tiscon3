@@ -21,7 +21,7 @@
 
                             <!-- /*エラーがあれば表示する*/ -->
                             <ul class="ui red basic label error-list" th:if="${form.hasErrors()}">
-                                <li class="error-list" th:each="error : ${form.jobFormName}" th:if="${form.hasErrors(error.key)}" th:text="'【' + ${form.userFormName[error.key]} + '】 ' + ${form.getErrors().get(error.key)}"></li>
+                                <li class="error-list" th:each="error : ${form.jobFormName}" th:if="${form.hasErrors(error.key)}" th:text="'【' + ${form.jobFormName[error.key]} + '】 ' + ${form.getErrors().get(error.key)}"></li>
                             </ul>
 
                             <div class="ui horizontal divider">お勤め先について</div>
