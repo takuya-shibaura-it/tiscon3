@@ -67,7 +67,15 @@
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('zipCode')}">
                                     <li class="error-list" th:text="${form.getErrors().get('zipCode')}"></li>
                                 </ul>
-                                <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
+                                <div class="two fields">
+                                    <div class="field">
+                                        <input type="text" name="zipCode0" placeholder="zipCode0"/>
+                                    </div>
+                                    -
+                                    <div class="field">
+                                        <input type="text" name="zipCode1" placeholder="zipCode1"/>
+                                    </div>
+                                </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('address')} ? 'error'">
                                 <label>ご住所</label>
@@ -81,14 +89,38 @@
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('homePhoneNumber')}">
                                     <li class="error-list" th:text="${form.getErrors().get('homePhoneNumber')}"></li>
                                 </ul>
-                                <input type="text" name="homePhoneNumber" th:value="${form.homePhoneNumber}"/>
+                                <div class="three fields">
+                                    <div class="field">
+                                        <input type="text" name="homePhoneNumber0" placeholder="homePhoneNumber0">
+                                    </div>
+                                    -
+                                    <div class="field">
+                                        <input type="text" name="homePhoneNumber1" placeholder="homePhoneNumber1">
+                                    </div>
+                                    -
+                                    <div class="field">
+                                        <input type="text" name="homePhoneNumber2" placeholder="homePhoneNumber1">
+                                    </div>
+                                </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber')} ? 'error'">
                                 <label>携帯電話番号</label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('mobilePhoneNumber')}">
                                     <li class="error-list" th:text="${form.getErrors().get('mobilePhoneNumber')}"></li>
                                 </ul>
-                                <input type="text" name="mobilePhoneNumber" th:value="${form.mobilePhoneNumber}"/>
+                                <div class="three fields">
+                                    <div class="field">
+                                        <input type="text" name="mobilePhoneNumber0" placeholder="mobilePhoneNumber0">
+                                    </div>
+                                    -
+                                    <div class="field">
+                                        <input type="text" name="mobilePhoneNumber1" placeholder="mobilePhoneNumber1">
+                                    </div>
+                                    -
+                                    <div class="field">
+                                        <input type="text" name="mobilePhoneNumber2" placeholder="mobilePhoneNumber2">
+                                    </div>
+                                </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
                                 <label>メールアドレス</label>
