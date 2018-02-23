@@ -27,21 +27,21 @@
                             <div class="ui horizontal divider">ご本人について</div>
 
                             <div class="field" th:classappend="${form.hasErrors('kanjiName')} ? 'error'">
-                                <label>お名前（漢字）<span class="require">*必須</span></label>
+                                <label>お名前<span class="char-type">（漢字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('kanjiName')}">
                                     <li class="error-list" th:text="${form.getErrors().get('kanjiName')}"></li>
                                 </ul>
                                 <input type="text" name="kanjiName" placeholder="＜例＞山本一郎" th:value="${form.kanjiName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('kanaName')} ? 'error'">
-                                <label>お名前（カナ）<span class="require">*必須</span></label>
+                                <label>フリガナ<span class="char-type">（全角カナ）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('kanaName')}">
                                     <li class="error-list" th:text="${form.getErrors().get('kanaName')}"></li>
                                 </ul>
                                 <input type="text" name="kanaName" placeholder="＜例＞ヤマモトイチロウ" th:value="${form.kanaName}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('alphabetName')} ? 'error'">
-                                <label>お名前（ローマ字）<span class="require">*必須</span></label>
+                                <label>お名前<span class="char-type">（ローマ字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('alphabetName')}">
                                     <li class="error-list" th:text="${form.getErrors().get('alphabetName')}"></li>
                                 </ul>
@@ -52,11 +52,11 @@
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('gender')}">
                                     <li class="error-list" th:text="${form.getErrors().get('gender')}"></li>
                                 </ul>
-                                <input type="radio" name="gender" value="male" th:checked="${form.gender}=='male'"/>男性
-                                <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
+                                <input class="radio-button" type="radio" name="gender" value="male" th:checked="${form.gender}=='male'"/>男性
+                                <input class="radio-button" type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('yearOfBirth') or form.hasErrors('monthOfBirth') or form.hasErrors('dayOfBirth')} ? 'error'">
-                                <label>生年月日<span class="require">*必須</span></label>
+                                <label>生年月日<span class="char-type">（半角数字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('dateOfBirth')}">
                                     <li class="error-list" th:text="${form.getErrors().get('dateOfBirth')}"></li>
                                 </ul>
@@ -68,20 +68,26 @@
                                 <div class="three fields">
                                     <div class="field">
                                         <input type="text" name="yearOfBirth" placeholder="1971" th:value="${form.yearOfBirth}"/>
+                                    </div>
+                                    <div class="birth-bet">
                                         年
                                     </div>
                                     <div class="field">
                                         <input type="text" name="monthOfBirth" placeholder="4" th:value="${form.monthOfBirth}"/>
+                                    </div>
+                                    <div class="birth-bet">
                                         月
                                     </div>
                                     <div class="field">
                                         <input type="text" name="dayOfBirth" placeholder="28" th:value="${form.dayOfBirth}"/>
-                                        日
                                     </div>
+                                    <div class="birth-bet">
+                                        日
+                                     </div>
                                 </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode0') or form.hasErrors('zipCode1')} ? 'error'">
-                                <label>郵便番号<span class="require">*必須</span></label>
+                                <label>郵便番号<span class="char-type">（半角数字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('zipCode0') or form.hasErrors('zipCode1')}">
                                     <li class="error-list" th:if="${form.hasErrors('zipCode0')}" th:text="${form.getErrors().get('zipCode0')}"></li>
                                     <li class="error-list" th:if="${(not form.hasErrors('zipCode0')) and form.hasErrors('zipCode1')}" th:text="${form.getErrors().get('zipCode1')}"></li>
@@ -90,7 +96,9 @@
                                     <div class="field">
                                         <input type="text" name="zipCode0" placeholder="012" th:value="${form.zipCode0}"/>
                                     </div>
-                                    -
+                                    <div class="hyphen">
+                                        -
+                                    </div>
                                     <div class="field">
                                         <input type="text" name="zipCode1" placeholder="3456" th:value="${form.zipCode1}"/>
                                     </div>
@@ -104,7 +112,7 @@
                                 <input type="text" name="address" placeholder="＜例＞東京都新宿区西新宿5-4東西マンションA棟101" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber0') or form.hasErrors('homePhoneNumber1') or form.hasErrors('homePhoneNumber2')} ? 'error'">
-                                <label>自宅電話番号<span class="require">*必須</span></label>
+                                <label>自宅電話番号<span class="char-type">（半角数字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('homePhoneNumber0') or form.hasErrors('homePhoneNumber1') or form.hasErrors('homePhoneNumber2')}">
                                     <li class="error-list" th:if="${form.hasErrors('homePhoneNumber0')}" th:text="${form.getErrors().get('homePhoneNumber0')}"></li>
                                     <li class="error-list" th:if="${(not form.hasErrors('homePhoneNumber0')) and form.hasErrors('homePhoneNumber1')}" th:text="${form.getErrors().get('homePhoneNumber1')}"></li>
@@ -114,18 +122,22 @@
                                     <div class="field">
                                         <input type="text" name="homePhoneNumber0" placeholder="012" th:value="${form.homePhoneNumber0}">
                                     </div>
-                                    -
+                                    <div class="hyphen">
+                                        -
+                                    </div>
                                     <div class="field">
                                         <input type="text" name="homePhoneNumber1" placeholder="3456" th:value="${form.homePhoneNumber1}">
                                     </div>
-                                    -
+                                    <div class="hyphen">
+                                        -
+                                    </div>
                                     <div class="field">
                                         <input type="text" name="homePhoneNumber2" placeholder="7890" th:value="${form.homePhoneNumber2}">
                                     </div>
                                 </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('mobilePhoneNumber0') or form.hasErrors('mobilePhoneNumber1') or form.hasErrors('mobilePhoneNumber2')} ? 'error'">
-                                <label>携帯電話番号</label>
+                                <label>携帯電話番号<span class="char-type">（半角数字）</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('mobilePhoneNumber')}">
                                     <li class="error-list" th:text="${form.getErrors().get('mobilePhoneNumber')}"></li>
                                 </ul>
@@ -138,18 +150,22 @@
                                     <div class="field">
                                         <input type="text" name="mobilePhoneNumber0" placeholder="090" th:value="${form.mobilePhoneNumber0}">
                                     </div>
-                                    -
+                                    <div class="hyphen">
+                                        -
+                                    </div>
                                     <div class="field">
                                         <input type="text" name="mobilePhoneNumber1" placeholder="3456" th:value="${form.mobilePhoneNumber1}">
                                     </div>
-                                    -
+                                    <div class="hyphen">
+                                        -
+                                    </div>
                                     <div class="field">
                                         <input type="text" name="mobilePhoneNumber2" placeholder="7890" th:value="${form.mobilePhoneNumber2}">
                                     </div>
                                 </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('emailAddress')} ? 'error'">
-                                <label>メールアドレス<span class="require">*必須</span></label>
+                                <label>メールアドレス<span class="char-type">（半角英数字、記号）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('emailAddress')}">
                                     <li class="error-list" th:text="${form.getErrors().get('emailAddress')}"></li>
                                 </ul>
@@ -160,8 +176,8 @@
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('spouse')}">
                                     <li class="error-list" th:text="${form.getErrors().get('spouse')}"></li>
                                 </ul>
-                                <input type="radio" name="spouse" value="1" th:checked="${form.spouse}=='1'"/>配偶者あり
-                                <input type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>配偶者なし
+                                <input class="radio-button" type="radio" name="spouse" value="1" th:checked="${form.spouse}=='1'"/>配偶者あり
+                                <input class="radio-button" type="radio" name="spouse" value="0" th:checked="${form.spouse}=='0'"/>配偶者なし
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('houseClassification')} ? 'error'">
                                 <label>お住まい<span class="require">*必須</span></label>
@@ -181,14 +197,14 @@
                                 </select>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('debt')} ? 'error'">
-                                <label>ローン等のお借り入れ金額<span class="require">*必須</span></label>
+                                <label>ローン等のお借り入れ金額<span class="char-type">（半角数字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('debt')}">
                                     <li class="error-list" th:text="${form.getErrors().get('debt')}"></li>
                                 </ul>
                                 <input type="text" class="number" name="debt" placeholder="＜例＞300" th:value="${form.debt}"/><span class="unit">万円</span>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('income')} ? 'error'">
-                                <label>昨年の所得<span class="require">*必須</span></label>
+                                <label>昨年の所得<span class="char-type">（半角数字）</span><span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('income')}">
                                     <li class="error-list" th:text="${form.getErrors().get('income')}"></li>
                                 </ul>

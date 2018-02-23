@@ -132,3 +132,20 @@ li.error-list {
     color: #DB2828;
     margin-left: 1em;
 }
+
+.char-type {
+    color: #b9b9b9;
+    margin-left: 1em;
+}
+
+.radio-button {
+    margin-left: 1em;
+}
+
+.birth-bet {
+    margin-top: 1.4em;
+}
+
+.hyphen {
+    margin-top: 0.6em;
+}
