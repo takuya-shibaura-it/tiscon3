@@ -124,9 +124,17 @@ public class CardOrderForm extends FormBase {
         userFormName.put("gender", "性別");
         userFormName.put("dateOfBirth", "生年月日");
         userFormName.put("zipCode", "郵便番号");
+        userFormName.put("zipCode0", "郵便番号（上3桁）");
+        userFormName.put("zipCode1", "郵便番号（下4桁）");
         userFormName.put("address", "ご住所");
         userFormName.put("homePhoneNumber", "自宅電話番号");
+        userFormName.put("homePhoneNumber0", "自宅電話番号");
+        userFormName.put("homePhoneNumber1", "自宅電話番号");
+        userFormName.put("homePhoneNumber2", "自宅電話番号");
         userFormName.put("mobilePhoneNumber", "携帯電話番号");
+        userFormName.put("mobilePhoneNumber0", "携帯電話番号");
+        userFormName.put("mobilePhoneNumber1", "携帯電話番号");
+        userFormName.put("mobilePhoneNumber2", "携帯電話番号");
         userFormName.put("emailAddress", "メールアドレス");
         userFormName.put("spouse", "配偶者有無");
         userFormName.put("houseClassification", "お住まい");
@@ -136,8 +144,13 @@ public class CardOrderForm extends FormBase {
 
         jobFormName.put("employerName", "お勤め先名");
         jobFormName.put("employerZipCode", "お勤め先郵便番号");
+        jobFormName.put("employerZipCode0", "お勤め先郵便番号（上3桁）");
+        jobFormName.put("employerZipCode1", "お勤め先郵便番号（下4桁）");
         jobFormName.put("employerAddress", "お勤め先住所");
         jobFormName.put("employerPhoneNumber", "お勤め先電話番号");
+        jobFormName.put("employerPhoneNumber0", "お勤め先電話番号");
+        jobFormName.put("employerPhoneNumber1", "お勤め先電話番号");
+        jobFormName.put("employerPhoneNumber2", "お勤め先電話番号");
         jobFormName.put("industryType", "業種");
         jobFormName.put("capital", "資本金");
         jobFormName.put("companySize", "お勤め先の規模（従業員数）");
@@ -149,6 +162,14 @@ public class CardOrderForm extends FormBase {
         * 複数個にまたがるフォームのエラー条件と名称は未登録！！！！！
         * 後でちゃんと確認して付け足すこと！！！！！！！！！！
         * */
+    }
+
+    public Set<String> getUserFormNameKeys() {
+        return userFormName.keySet();
+    }
+
+    public Set<String> getJobFormNameKeys() {
+        return jobFormName.keySet();
     }
 
 }

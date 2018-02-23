@@ -54,8 +54,10 @@ public class CardOrderController {
      */
     public HttpResponse inputJob(CardOrderForm form) {
         //エラーを持ったまま遷移した場合に/userに戻す
-        if (form.hasErrors()) {
-            return templateEngine.render("cardOrder/user", "form", form);
+        for(String key : form.getUserFormNameKeys()) {
+            if (form.hasErrors(key)) {
+                return templateEngine.render("cardOrder/user", "form", form);
+            }
         }
 
         // エラーを出したくないので強制的にエラーを消す.
