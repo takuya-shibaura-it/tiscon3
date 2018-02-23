@@ -55,18 +55,36 @@
                                 <input type="radio" name="gender" value="male" th:checked="${form.gender}=='male'"/>男性
                                 <input type="radio" name="gender" value="female" th:checked="${form.gender}=='female'"/>女性
                             </div>
-                            <div class="field" th:classappend="${form.hasErrors('dateOfBirth')} ? 'error'">
+                            <div class="field" th:classappend="${form.hasErrors('yearOfBirth') or form.hasErrors('monthOfBirth') or form.hasErrors('dayOfBirth')} ? 'error'">
                                 <label>生年月日<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('dateOfBirth')}">
                                     <li class="error-list" th:text="${form.getErrors().get('dateOfBirth')}"></li>
                                 </ul>
-                                <input type="text" name="dateOfBirth" th:value="${form.dateOfBirth}"/>
+                                <ul class="ui red basic label error-list" th:if="${form.hasErrors('yearOfBirth') or form.hasErrors('monthOfBirth') or form.hasErrors('dayOfBirth')}">
+                                    <li class="error-list" th:if="${form.hasErrors('yearOfBirth')}" th:text="${form.getErrors().get('yearOfBirth')}"></li>
+                                    <li class="error-list" th:if="${(not form.hasErrors('yearOfBirth')) and form.hasErrors('monthOfBirth')}" th:text="${form.getErrors().get('monthOfBirth')}"></li>
+                                    <li class="error-list" th:if="${((not form.hasErrors('yearOfBirth')) and (not form.hasErrors('monthOfBirth'))) and form.hasErrors('dayOfBirth')}" th:text="${form.getErrors().get('dayOfBirth')}"></li>
+                                </ul>
+                                <div class="three fields">
+                                    <div class="field">
+                                        <input type="text" name="yearOfBirth" placeholder="1971" th:value="${form.yearOfBirth}"/>
+                                        年
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" name="monthOfBirth" placeholder="4" th:value="${form.monthOfBirth}"/>
+                                        月
+                                    </div>
+                                    <div class="field">
+                                        <input type="text" name="dayOfBirth" placeholder="28" th:value="${form.dayOfBirth}"/>
+                                        日
+                                    </div>
+                                </div>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('zipCode0') or form.hasErrors('zipCode1')} ? 'error'">
                                 <label>郵便番号<span class="require">*必須</span></label>
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('zipCode0') or form.hasErrors('zipCode1')}">
                                     <li class="error-list" th:if="${form.hasErrors('zipCode0')}" th:text="${form.getErrors().get('zipCode0')}"></li>
-                                    <li class="error-list" th:if="${form.hasErrors('zipCode1')}" th:text="${form.getErrors().get('zipCode1')}"></li>
+                                    <li class="error-list" th:if="${(not form.hasErrors('zipCode0')) and form.hasErrors('zipCode1')}" th:text="${form.getErrors().get('zipCode1')}"></li>
                                 </ul>
                                 <div class="two fields">
                                     <div class="field">
@@ -83,7 +101,7 @@
                                 <ul class="ui red basic label error-list" th:if="${form.hasErrors('address')}">
                                     <li class="error-list" th:text="${form.getErrors().get('address')}"></li>
                                 </ul>
-                                <input type="text" name="address" placeholder="＜例＞５－４東西マンションA棟１０１" th:value="${form.address}"/>
+                                <input type="text" name="address" placeholder="＜例＞東京都新宿区西新宿5-4東西マンションA棟101" th:value="${form.address}"/>
                             </div>
                             <div class="field" th:classappend="${form.hasErrors('homePhoneNumber0') or form.hasErrors('homePhoneNumber1') or form.hasErrors('homePhoneNumber2')} ? 'error'">
                                 <label>自宅電話番号<span class="require">*必須</span></label>
@@ -118,7 +136,7 @@
                                 </ul>
                                 <div class="three fields">
                                     <div class="field">
-                                        <input type="text" name="mobilePhoneNumber0" placeholder="012" th:value="${form.mobilePhoneNumber0}">
+                                        <input type="text" name="mobilePhoneNumber0" placeholder="090" th:value="${form.mobilePhoneNumber0}">
                                     </div>
                                     -
                                     <div class="field">
