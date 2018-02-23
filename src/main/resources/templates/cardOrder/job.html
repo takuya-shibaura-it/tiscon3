@@ -113,16 +113,16 @@
                                     <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'industryType' ? ${error.value}"></li>
                                 </ul>
                                 <select>
-                                    <option value="農林水鉱">農業・林業・水産業・鉱業</option>
-                                    <option value="建築不動産">建設・不動産業</option>
-                                    <option value="製造">製造業</option>
-                                    <option value="卸小売流通">卸売業・小売・その他流通業</option>
-                                    <option value="金融保険">金融・保険業</option>
-                                    <option value="運輸通信">運輸・通信業</option>
-                                    <option value="電気ガス">電気・ガス業</option>
-                                    <option value="官公庁">官公庁</option>
-                                    <option value="サービス">その他サービス業</option>
-                                    <option value="その他">その他</option>
+                                    <option value="農林水鉱" th:checked="${form.industryType}=='農林水鉱'"/>農業・林業・水産業・鉱業
+                                    <option value="建築不動産" th:checked="${form.industryType}=='建築不動産'"/>建設・不動産業
+                                    <option value="製造" th:checked="${form.industryType}=='製造'"/>製造業
+                                    <option value="卸小売流通" th:checked="${form.industryType}=='卸小売流通'"/>卸売業・小売・その他流通業
+                                    <option value="金融保険" th:checked="${form.industryType}=='金融保険'"/>金融・保険業
+                                    <option value="運輸通信" th:checked="${form.industryType}=='運輸通信'"/>運輸・通信業
+                                    <option value="電気ガス" th:checked="${form.industryType}=='電気ガス'"/>電気・ガス業
+                                    <option value="官公庁" th:checked="${form.industryType}=='官公庁'"/>官公庁
+                                    <option value="サービス" th:checked="${form.industryType}=='サービス'"/>その他サービス業
+                                    <option value="その他" th:checked="${form.industryType}=='その他'"/>その他・不明
                                 </select>
                             </div>
 
@@ -171,12 +171,12 @@
                                     <li class="error-list" th:each="error : ${form.getErrors().entrySet()}" th:text="${error.key} == 'companySize' ? ${error.value}"></li>
                                 </ul>
                                 <select>
-                                    <option name="companySize" th:field="${form.companySize}" value="9" th:checked="${form.companySize}=='9'">１０名未満</option>
-                                    <option name="companySize" th:field="${form.companySize}" value="29" th:checked="${form.companySize}=='29'">１０名以上３０名未満</option>
-                                    <option name="companySize" th:field="${form.companySize}" value="49" th:checked="${form.companySize}=='49'">３０名以上５０名未満</option>
-                                    <option name="companySize" th:field="${form.companySize}" value="99" th:checked="${form.companySize}=='99'">５０名以上１００名未満</option>
-                                    <option name="companySize" th:field="${form.companySize}" value="499" th:checked="${form.companySize}=='499'">１００名以上５００名未満</option>
-                                    <option name="companySize" th:field="${form.companySize}" value="500" th:checked="${form.companySize}=='500'">５００名以上</option>
+                                    <option name="companySize" th:field="${form.companySize}" value="9" th:checked="${form.companySize}=='9'">０名～１０名</option>
+                                    <option name="companySize" th:field="${form.companySize}" value="29" th:checked="${form.companySize}=='29'">１０名～３０名</option>
+                                    <option name="companySize" th:field="${form.companySize}" value="49" th:checked="${form.companySize}=='49'">３０名～５０名</option>
+                                    <option name="companySize" th:field="${form.companySize}" value="99" th:checked="${form.companySize}=='99'">５０名～１００名</option>
+                                    <option name="companySize" th:field="${form.companySize}" value="499" th:checked="${form.companySize}=='499'">１００名～５００名</option>
+                                    <option name="companySize" th:field="${form.companySize}" value="500" th:checked="${form.companySize}=='500'">５００名～</option>
                                 </select>
                             </div>
 
